@@ -52,7 +52,8 @@ Happy LaTeXing！~
 
 - [Flux扁平主题：](https://github.com/pvanberg/flux-beamer)
 
-- [AAU Beamer主题](https://github.com/jkjaer/aauLatexTemplates)
+- [AAU Beamer主题：](https://github.com/jkjaer/aauLatexTemplates)
 
+- [双屏主题：](https://github.com/dustincys/progressbar)
 
 
