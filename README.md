@@ -5,7 +5,7 @@
 [![GitHub release](https://img.shields.io/github/release/ustctug/ustcthesis/all.svg)](https://github.com/ustctug/ustcthesis/releases/latest)
 [![GitHub commits](https://img.shields.io/github/commits-since/ustctug/ustcthesis/latest.svg)](https://github.com/ustctug/ustcthesis/commits/master)
 
-这是一组为西北农林科技大学师生讲课或报告用的Beamer演示文稿主题，这些主题原稿来自，根据个人理解和习惯进行了调整，适合西北农林科技大学。
+这是一组为西北农林科技大学师生讲课或报告用的Beamer演示文稿主题，这些主题原稿来自网络，根据个人理解和习惯进行了调整，添加了西北农林科技大学的LOGO。
 
 Happy LaTeXing！~
 
