@@ -112,11 +112,17 @@
         \usebeamerfont{title}\color{primary}\inserttitle\\[0.3cm]
         \usebeamerfont{subtitle}\color{Gray!90!black}\insertsubtitle\\[0.1cm]
         \usebeamercolor[fg]{footer}\rule{0.7\paperwidth}{0.2pt}	\\[0.35cm]
-        \usebeamerfont{author}\color{Gray}\insertauthor\\[0.3cm]
-        \usebeamerfont{institute}\color{Gray}\insertinstitute
+        \usebeamerfont{author}\color{Gray}\insertauthor\\[0.25cm]
+        \usebeamerfont{institute}\color{Gray}\insertinstitute%
       };
-      %\node[anchor=south,outer ysep=0.4cm] at (current page.south){\small\color{Gray!90}\insertdate};
-      %\node[anchor=south east,icon] at (current page.south east)(logo){\includegraphics[width=\logo@width, height=\logo@height, keepaspectratio]{\inserttitlegraphic}};
+      \node[anchor=south, outer ysep=1.6cm, opacity=0.55] at (current page.south){
+        \includegraphics[scale=0.35]{nwafulogo/h_bar}
+      };
+      \node[align=center, anchor=south, outer ysep=0.2cm] at (current page.south){
+        \small\color{Gray!90}中国$\boldsymbol{\cdot}$杨凌\\[-0.1cm]%
+        \small\color{Gray!90}\insertdate
+      };
+      %\node[anchor=south east,icon] at (current page.south east)(logo){\includegraphics[width=\logo@width, height=\logo@height, keepaspectratio]{nwafulogo/h_bar}};
     \end{tikzpicture}
   \end{frame}
 }
