@@ -13,7 +13,19 @@ Happy LaTeXing！~
 
 1. 本文档要求 TeXLive、MacTeX、MikTeX 不低于 2018 年的发行版，并且尽可能升级到最新，强烈建议使用TeXLive2019。
 
-3. **不支持** [CTeX 套装](http://www.ctex.org/CTeXDownload)。
+2. **不支持** [CTeX 套装](http://www.ctex.org/CTeXDownload)。
+
+## 主题名称
+
+1. nwafuBlackBoard：黑板主题，以黑板作为Beamer背景，可以在16:9/4:3屏幕比例之间自由切换。
+
+2. nwafuFenGang：凤岗主题，基于林莲技的萧山主题，添加了学校Logo、页脚信息。
+
+3. nwafuFlux：扁平主题，基于Flux扁平主题，添加了学校Logo、页脚信息。
+
+4. nwafuSideBar：边栏主题，基于AAU Beamer主题，添加了学校Logo，调整了各部件的大小。
+
+5. nwafuSimple：简单主题，基于AAU Beamer主题，添加了学校Logo、页脚信息。
 
 
 ## 反馈问题
@@ -46,14 +58,14 @@ Happy LaTeXing！~
 
 ## 原主题下载
 
-- [Blackboard主题：](https://github.com/kmaed/kmbeamer)
+- [Blackboard主题](https://github.com/kmaed/kmbeamer)
 
-- [萧山主题：](https://github.com/liantze/pgfornament-han)
+- [萧山主题](https://github.com/liantze/pgfornament-han)
 
-- [Flux扁平主题：](https://github.com/pvanberg/flux-beamer)
+- [Flux扁平主题](https://github.com/pvanberg/flux-beamer)
 
-- [AAU Beamer主题：](https://github.com/jkjaer/aauLatexTemplates)
+- [AAU Beamer主题](https://github.com/jkjaer/aauLatexTemplates)
 
-- [双屏主题：](https://github.com/dustincys/progressbar)
+- [双屏主题](https://github.com/dustincys/progressbar)
 
 
