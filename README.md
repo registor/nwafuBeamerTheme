@@ -19,7 +19,7 @@ Happy LaTeXing！~
 
 1. nwafuBlackBoard：黑板主题，以黑板作为Beamer背景，可以在16:9/4:3屏幕比例之间自由切换。
 
-2. nwafuFenGang：凤岗主题，基于林莲技的萧山主题，添加了学校Logo、页脚信息。
+2. nwafuFenGang：凤岗主题，基于林莲枝的萧山主题，添加了学校Logo、页脚信息。
 
 3. nwafuFlux：扁平主题，基于Flux扁平主题，添加了学校Logo、页脚信息。
 
