@@ -1,0 +1,67 @@
+\ProvidesPackage{beamerfontthemeprogressbar}[2011/05/02]
+
+% Beamer theme by Sylvain Bouveret <sylvain[dot]bouveret[aT]cert[DoT]fr>
+% based on the LaTeX-Beamer package :
+%
+% Copyright 2003 by Till Tantau <tantau@users.sourceforge.net>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+% This fork was created to satisfy personnal taste in code.
+%
+% Last modified by Cédric Mauclair.
+
+
+\usefonttheme{default}
+
+
+% titlepage
+\setbeamerfont{title}     {parent=structure, size=\normalsize, series=\bfseries}
+\setbeamerfont{subtitle}  {parent=title}
+\setbeamerfont{author}    {parent=title}
+\setbeamerfont{institute} {parent=structure, size=\scriptsize, series=\mdseries}
+\setbeamerfont{date}      {parent=institute}
+
+% items
+\setbeamerfont{itemize/enumerate body}       {size=\small}
+\setbeamerfont{itemize/enumerate subbody}    {size=\footnotesize}
+\setbeamerfont{itemize/enumerate subsubbody} {size=\scriptsize}
+
+\setbeamerfont{enumerate item}    {size=\tiny, series=\bfseries}
+\setbeamerfont{enumerate subitem} {size=\Tiny, series=\bfseries}
+
+% sections
+\setbeamerfont{section in toc}
+  {parent=structure, size=\scriptsize, series=\bfseries}
+\setbeamerfont{subsection in toc}
+  {parent=structure, size=\scriptsize, series=\bfseries}
+\setbeamerfont{section text in toc}
+  {parent=section in toc, size=\normalsize}
+\setbeamerfont{subsection text in toc}
+  {parent=subsection in toc, size=\scriptsize}
+\setbeamerfont{section in head/foot}
+  {size=\tiny, series=\bfseries}
+
+% bibliography
+\setbeamerfont{bibliography entry author}
+  {size=\scriptsize, shape=\upshape, series=\bfseries}
+\setbeamerfont{bibliography entry title}
+  {size=\tiny, shape=\upshape, series=\mdseries}
+\setbeamerfont{bibliography entry journal}
+  {size=\tiny, shape=\upshape, series=\mdseries}
+\setbeamerfont{bibliography entry note}
+  {size=\tiny, shape=\upshape, series=\mdseries}
+\setbeamertemplate{bibliography item}[progressbar]
+
+% miscs
+\setbeamerfont{block title}
+  {parent={structure, block body}, size=\normalsize, series=\bfseries}
+
+\expandafter\let\csname beamerx@\string\emph\endcsname\relax
+\renewcommand<>\emph[1]{{\only#2{\color{structure.fg}\bfseries}#1}}
+
+
+%%% Local Variables:
+%%% TeX-master: "./demo-slides.tex"
+%%% End:

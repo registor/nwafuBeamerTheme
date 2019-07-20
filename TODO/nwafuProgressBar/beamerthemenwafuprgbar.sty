@@ -1,0 +1,33 @@
+% 这是nwafu(西北农林科技大学)页脚简单进度条主题.
+% 版权(c) 2015-2019, 信息工程学院 耿楠<nangeng@nwafu.edu.cn>
+%
+% 本主题修改于Sylvain Bouveret的页脚简单进度条<sylvain.bouveret@cert.fr>
+%
+% 这是一个免费代码：发布和修改该代码，请遵守最新版的自由软件联盟发布
+% 的GNU通用公共协议
+%
+% 期望这一代码对你有用，但值得注意的是，我不对任何后续问题进行维护，
+% 请参考<http://www.gnu.org/licenses/>查看最新的协议内容。
+
+
+\ProvidesPackage{beamerthemenwafuprgbar}[2019/07/19]
+
+
+\RequirePackage{tikz}
+\RequirePackage{xspace}
+
+
+\usecolortheme{nwafuprgbar}
+\useinnertheme{nwafuprgbar}
+\usefonttheme{nwafuprgbar}
+\useoutertheme{nwafuprgbar}
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamertemplate{navigation symbols}{}
+
+\AtBeginDocument{%
+  \typeout{..................................................................}
+  \typeout{You are using the nwafuprgbar beamer theme (Geng Nan.)}
+  \typeout{Version: 2.00. 07. 2019.}
+  \typeout{..................................................................}
+}

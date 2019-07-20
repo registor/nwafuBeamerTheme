@@ -1,0 +1,33 @@
+% 这是nwafu(西北农林科技大学)页脚简单进度条主题的颜色主题.
+% 版权(c) 2015-2019, 信息工程学院 耿楠<nangeng@nwafu.edu.cn>
+%
+% 本主题修改于Sylvain Bouveret的页脚简单进度条<sylvain.bouveret@cert.fr>
+%
+% 这是一个免费代码：发布和修改该代码，请遵守最新版的自由软件联盟发布
+% 的GNU通用公共协议
+%
+% 期望这一代码对你有用，但值得注意的是，我不对任何后续问题进行维护，
+% 请参考<http://www.gnu.org/licenses/>查看最新的协议内容。
+
+\ProvidesPackage{beamercolorthemenwafuprgbar}[2019/07/19]
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% 一些颜色定义
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usecolortheme{rose}
+
+\definecolor{progressbar@bgblue}{rgb}{0.75,0.75,0.95} % use structure theme to change
+\definecolor{progressbar@fgblue}{rgb}{0.1,0.1,0.9} % use structure theme to change
+
+\setbeamercolor*{palette primary}{fg=progressbar@fgblue,bg=progressbar@bgblue}
+\setbeamercolor*{palette secundary}{fg=progressbar@fgblue,bg=progressbar@bgblue}
+\setbeamercolor*{palette tertiary}{fg=progressbar@fgblue,bg=progressbar@bgblue}
+
+\setbeamercolor{section in head/foot}{parent=palette primary}
+
+\makeatother

@@ -1,0 +1,24 @@
+% 使用ctexart文档类（用XeLaTeX编译，直接支持中文）
+\documentclass{ctexart}
+
+% 导言区，可以在此引入必要的宏包
+\usepackage{pdfpages}
+\usepackage{eso-pic}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\thispagestyle{empty}
+\pagestyle{empty}
+
+\begin{document} %在document环境中撰写文档
+\includepdf[pagecommand={%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node at ($(current page.center)+(5, 10)$) {overlay text};
+  \end{tikzpicture}
+  },pages=1-]{example.pdf}
+  % \includepdf[pages=2-]{example.pdf}
+\end{document}    
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

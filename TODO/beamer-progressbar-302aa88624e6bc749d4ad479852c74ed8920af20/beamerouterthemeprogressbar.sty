@@ -1,0 +1,244 @@
+\ProvidesPackage{beamerouterthemeprogressbar}[20011/05/02]
+
+% Beamer theme by Sylvain Bouveret <sylvain[dot]bouveret[aT]cert[DoT]fr>
+% based on the LaTeX-Beamer package :
+%
+% Copyright 2003 by Till Tantau <tantau@users.sourceforge.net>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+% This fork was created to satisfy personnal taste in code.
+%
+% Last modified by Cédric Mauclair.
+
+
+\RequirePackage{calc, pgfkeys, tikz}
+\usetikzlibrary[arrows]
+
+
+%<< Processing options >>
+
+\pgfkeys{/pb/.is family}
+
+\pgfqkeys{/pb}{%
+  .headline/.store in=\pb@headline,
+  headline/.is choice,
+  headline/none/.style={%
+    /pb/.headline=none},
+  headline/sections/.style={%
+    /pb/.headline=sections},
+  headimage/.store in=\pb@headimage,
+  titleimage/.store in=\pb@titleimage,
+  titlepage/.store in=\pb@titlepage}
+
+\providecommand\progressbaroptions{\pgfqkeys{/pb}}
+
+\AtBeginDocument{%
+  \pgfdeclareimage[width=0.27\textwidth, interpolate=true]
+    {titleimage}{\pb@headimage}
+  \pgfdeclareimage[width=0.12\textwidth, interpolate=true]
+    {headimage}{\pb@titleimage}
+}
+
+% default values
+\progressbaroptions{%
+  headline=none,% also 'sections'
+  headimage=images/tree04.jpg,
+  titlepage=picture,
+  titleimage=images/tree04.jpg}
+
+%>>
+
+
+\mode
+<presentation>
+
+%<< progress bar         >>
+
+% some computations dedicated to the progressbar
+\newdimen\pb@frame
+\newdimen\pb@bar
+\newdimen\pb@step
+\newdimen\pb@margin
+
+\pb@margin=2mm
+
+\newcommand\setlen[2]{#1\dimexpr#2\relax}
+\newcommand\gsetlen[2]{\global#1\dimexpr#2\relax}
+
+% this is used to fake the number of slides when there are appendices
+% at that time, the macro \insertintermediateframenumber is redefined to
+% be the last frame before the appendices
+\def\insertintermediateframenumber{\inserttotalframenumber}
+
+% progressbar
+\def\insertprogressbar{%
+  % do some computations once...
+  \ifnum\insertframenumber=1
+    \setbox\@tempboxa=\hbox{%
+      \usebeamerfont{section in head/foot}%
+      \usebeamercolor[fg]{section in head/foot}%
+      \insertintermediateframenumber~/~\insertintermediateframenumber}
+    \@tempdima=\wd\@tempboxa
+
+    \gsetlen\pb@frame \@tempdima
+    \gsetlen\pb@bar   {\paperwidth-\@tempdima-3\pb@margin}
+    \gsetlen\pb@step  {\pb@bar/(\insertintermediateframenumber-2)}
+  % ... but don't put the progressbar on the first page (not frame!)
+  \else
+    \setlen\@tempdima {\pb@step*(\insertframenumber-2)}
+    \begin{tikzpicture}[thin, inner sep=0pt]
+      \usebeamerfont{section in head/foot}
+      \usebeamercolor{section in head/foot}
+      \path [use as bounding box]
+        (0,-1mm) rectangle ++(\paperwidth,0);
+      \node [anchor=east, text=fg]
+        at (\paperwidth-\pb@margin,2.1mm)
+        {\hfill\insertframenumber~/~\insertintermediateframenumber};
+      \node [anchor=south east, text=fg]
+        at (\paperwidth-2\pb@margin-\pb@frame-0.4mm,2.6mm)
+        {\insertshorttitle};
+      \path [draw, color=fg!30!bg, <->, >=serif cm]
+        (\pb@margin,2.1mm) -- ++(\pb@bar,0);
+      \node [anchor=north, text=fg!30!bg]
+        at (\@tempdima+\pb@margin,2.1mm) {$\blacktriangle$};
+    \end{tikzpicture}
+  \fi}
+
+%>>
+%<< headline/footline    >>
+
+\defbeamertemplate*{section in head/foot}{progressbar}{%
+  \setbox\@tempboxa\hbox{\strut\insertsectionhead}%
+  \setdim\@tempdima{\wd\@tempboxa+4pt}%
+  \setdim\@tempdimb{\ht\@tempboxa+4pt}%
+  \begin{tikzpicture}
+    \usebeamercolor{section in head/foot}
+    \path [clip]
+      (-1pt,-1pt) rectangle (\@tempdima+1pt, \@tempdimb+1pt);
+    \path [draw=fg, thin, rounded corners=3pt]
+      (0,0) rectangle (\@tempdima, \@tempdimb);
+    \node [anchor=text, text=fg]
+      at (2pt,2pt) {\strut\insertsectionhead};
+  \end{tikzpicture}}
+
+\setbeamercolor{section in head/foot shaded}{fg=gray!80}
+\defbeamertemplate*{section in head/foot shaded}{progressbar}{%
+  \setbox\@tempboxa\hbox{\strut\insertsectionhead}%
+  \setdim\@tempdima{\wd\@tempboxa+4pt}%
+  \setdim\@tempdimb{\ht\@tempboxa+4pt}%
+  \begin{tikzpicture}
+    \usebeamercolor{section in head/foot shaded}
+    \path [clip]
+      (-1pt,-1pt) rectangle (\@tempdima+1pt, \@tempdimb+1pt);
+    \path [rounded corners=3pt]
+      (0,0) rectangle (\@tempdima, \@tempdimb);
+    \node [anchor=text, text=fg]
+      at (2pt,2pt) {\strut\insertsectionhead};
+  \end{tikzpicture}}
+
+\def\const@none{none}
+\def\const@sections{sections}
+
+\defbeamertemplate*{headline}{progressbar}{%
+  \vskip2pt
+  \leavevmode
+  \begin{beamercolorbox}
+    [ignorestructure.bg=true, wd=\paperwidth, ht=4ex, dp=1.125ex]{structure.fg}
+    \ifnum\insertframenumber=1\else
+    \ifx\pb@headline\const@sections
+      \insertsectionnavigationhorizontal{\paperwidth}{}{}
+    \fi\fi
+  \end{beamercolorbox}}
+
+\defbeamertemplate*{footline}{progressbar}
+  {\insertprogressbar}
+
+%>>
+%<< title page           >>
+
+\newcommand\insertmaybe[1]{%
+  \expandafter\ifx\csname insert#1\endcsname\@empty\else
+    \endgraf
+    {\usebeamerfont{#1}%
+     \usebeamercolor[fg]{#1}%
+     \csname insert#1\endcsname}%
+  \fi}
+
+\defbeamertemplate*{title page}{progressbar}{%
+  % 'picture'
+  \ifx\pb@titlepage\const@picture
+  \parbox{0.30\textwidth}{\pgfuseimage{titleimage}}%
+  \parbox{0.70\textwidth}{
+    \begin{center}
+      % title
+      {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}%
+      \insertmaybe{subtitle}
+      % rule
+      \vskip\baselineskip\hrule\vskip\baselineskip
+      % optionnal content
+      \insertmaybe{author}
+      \insertmaybe{date}
+      \insertmaybe{institute}
+      \insertlogo
+    \end{center}}
+  % anything else
+  \else
+    \pgfdeclarehorizontalshading{separation}{0.5pt}{%
+        color(0cm)=(structure.bg);
+        color(0.5\textwidth)=(structure.fg);
+        color(\textwidth)=(structure.bg)}
+    \begin{center}
+      % title
+      {\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle}%
+      \insertmaybe{subtitle}
+      % rule
+      \pgfuseshading{separation}\vskip1.4ex
+      % optionnal content
+      \insertmaybe{author}
+      \insertmaybe{date}
+      \insertmaybe{institute}
+      \insertlogo
+      % rule
+      \pgfuseshading{separation}
+    \end{center}
+  \fi
+}
+
+%>>
+%<< background           >>
+
+\defbeamertemplate*{background canvas}{progressbar}
+  {\pgfuseshading{background shading}}
+
+\AtBeginDocument{%
+  \begingroup
+    \usebeamercolor{palette secondary}
+    \usebeamercolor{normal text}
+    \pgfdeclareverticalshading{background shading}\paperwidth{%
+      color(0cm)=(palette secondary.bg);% bottom
+      color(3cm)=(normal text.bg);
+      color(0.6\paperheight)=(normal text.bg);
+      color(0.9\paperheight)=(palette secondary.bg);
+      color(\paperheight)=(black!60!palette secondary.bg)}% top
+  \endgroup}
+
+%>>
+
+
+\mode
+<handout>{%
+  % background
+  \setbeamertemplate{background canvas}{}
+  % headline/footline
+  \setbeamertemplate{headline}{\vskip2mm}
+  \setbeamertemplate{footline}{}%
+  % title page
+  \setbeamertemplate{title page}[default]}
+
+
+%%% Local Variables:
+%%% TeX-master: "./demo-slides.tex"
+%%% End:
+

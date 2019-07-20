@@ -1,0 +1,102 @@
+% multiple1902 <multiple1902@gmail.com>
+% beamerthemeXJTU.sty
+% Copyright 2011, multiple1902(Weisi Dai)
+% https://bitbucket.org/multiple1902/beamerthemexjtu
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% This work has the LPPL maintenance status `maintained'.
+% 
+% The Current Maintainer of this work is Weisi Dai.
+\usetheme{Rochester}
+
+\RequirePackage{pgf}
+
+\pgfdeclareimage[width=1.0\paperwidth,height=0.1308\paperwidth]{XJTU-header}{inc/XJTU-header}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamercovered{transparent}
+
+\beamer@headheight=0.13\paperwidth
+
+\definecolor{XJTUdarkred}{HTML}{86080b}
+\definecolor{XJTUgray}{HTML}{686868}
+\definecolor{XJTUlightgray}{HTML}{EEEEEE}
+\definecolor{XJTUblue}{HTML}{236EAF}
+\definecolor{XJTUyellow}{HTML}{FFEA00}
+
+\definecolor{XJTUblocktitlebg}{HTML}{084884}
+\definecolor{XJTUexampleblocktitlebg}{HTML}{842e08}
+\definecolor{XJTUalertblocktitlebg}{HTML}{e40d13}
+
+\setbeamerfont*{title}{series=\bfseries,size=\Huge}
+\setbeamercolor*{title}{fg=XJTUyellow,bg=XJTUdarkred}
+\setbeamercolor*{Title bar}{fg=XJTUyellow}
+\setbeamercolor*{Location bar}{fg=XJTUdarkred,bg=XJTUlightgray}
+\setbeamercolor*{frametitle}{parent=Title bar}
+\setbeamercolor*{block title}{bg=XJTUblue,fg=white}
+\setbeamercolor*{block body}{bg=XJTUlightgray,fg=black}
+\setbeamercolor*{normal text}{bg=white,fg=black}
+%\setbeamercolor*{section in head/foot}{bg=white,fg=white}
+
+\setbeamercolor{block title}{bg=XJTUblocktitlebg}
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamercolor{block title example}{bg=XJTUexampleblocktitlebg}
+\setbeamercolor{block title alerted}{bg=XJTUalertblocktitlebg}
+
+\usecolortheme[named=XJTUdarkred]{structure}
+
+\setbeamerfont{section in head/foot}{size=\tiny,series=\bfseries,family=\sf}
+%\setbeamertemplate{section in head/foot}[default][20]%{%
+
+\setbeamercolor{section in head/foot}{fg=XJTUyellow}
+\setbeamerfont{frametitle}{size=\Large}
+
+\setbeamertemplate{blocks}[rounded][shadow=true]
+%\setbeamertemplate{headline}
+\setbeamertemplate{frametitle}
+{
+  \vskip-0.25\beamer@headheight
+  \vskip-\baselineskip
+  \vskip-0.2cm
+  \hskip0.7cm\usebeamerfont*{frametitle}\textbf{\insertframetitle}
+  \vskip-0.10em
+  \hskip0.7cm\usebeamerfont*{framesubtitle}\textbf{\insertframesubtitle}
+}
+
+\setbeamertemplate{headline}
+{
+  \pgfuseimage{XJTU-header}
+  \vskip -1.95cm
+  \linethickness{0pt}
+
+  \framelatex{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.33\beamer@headheight]{Title bar}
+    \usebeamerfont{section in head/foot}%
+    \insertsectionnavigationhorizontal{0pt}{\hskip0.22cm}{}%
+  \end{beamercolorbox}}
+
+  \framelatex{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.67\beamer@headheight]{Title bar}
+  \end{beamercolorbox}}
+}
+
+\setbeamertemplate{footline}
+{
+  \linethickness{0.25pt}
+  \framelatex{
+  \begin{beamercolorbox}[leftskip=.3cm,wd=\paperwidth,ht=0.3\beamer@headheight,sep=0.1cm]{Location bar}
+    \usebeamerfont{section in head/foot}%
+    \insertshortauthor~|~\insertshorttitle
+    \hfill
+    \insertframenumber/\inserttotalframenumber
+  \end{beamercolorbox}}
+}

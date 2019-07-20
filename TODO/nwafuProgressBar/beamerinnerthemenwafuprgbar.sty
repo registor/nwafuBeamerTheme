@@ -1,0 +1,59 @@
+% 这是nwafu(西北农林科技大学)页脚简单进度条主题的内部主题.
+% 版权(c) 2015-2019, 信息工程学院 耿楠<nangeng@nwafu.edu.cn>
+%
+% 本主题修改于Sylvain Bouveret的页脚简单进度条<sylvain.bouveret@cert.fr>
+%
+% 这是一个免费代码：发布和修改该代码，请遵守最新版的自由软件联盟发布
+% 的GNU通用公共协议
+%
+% 期望这一代码对你有用，但值得注意的是，我不对任何后续问题进行维护，
+% 请参考<http://www.gnu.org/licenses/>查看最新的协议内容。
+
+
+\ProvidesPackage{beamerinnerthemenwafuprgbar}[2019/07/19]
+
+\RequirePackage{tikz}
+
+\useinnertheme{rounded}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Bibliography...
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\defbeamertemplate*{bibliography item}{progressbar theme}{
+  \begin{tikzpicture}
+    \useasboundingbox (0, 0.2) rectangle (0.5, 0.7);
+    \fill[fill=bg!85!blue] (0, 0.25) rectangle (0.4, 0.5);
+    \shade[bottom color=bg,top color=bg!85!blue] (0, 0) -- (0.3, 0) -- (0.4, 0.12) -- (0.4, 0.3) -- (0, 0.3) -- cycle;
+    \shade[left color=bg,right color=bg!85!blue] (0,0.27) .. controls (0.25,0.25) .. (0.4,0.5) -- (0,0.5) -- cycle;
+    \fill[fill=bg!90!blue] (0,0) rectangle (0.3,0.05);
+    \shade[left color=bg!95!blue,right color=bg!90!blue] (0,0) rectangle (0.05,0.5);
+    \shade[left color=bg,right color=bg!80!black,shading angle=45] (0.3,0) -- (0.3,0.12) -- (0.4,0.12) -- cycle;
+    \draw[draw=fg!35!bg] (0,0) -- (0.3,0) -- (0.4,0.12) -- (0.4,0.5) -- (0,0.5) -- cycle;
+    \draw[draw=fg!35!bg](0.3,0) -- (0.3,0.12) -- (0.4,0.12);
+  \end{tikzpicture}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Frame title...
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\defbeamertemplate*{frametitle}{progressbar theme}{
+  \begin{centering}
+    \textbf{\insertframetitle}
+    \par
+  \end{centering}
+}
+
+
+  
+\mode<all>
+
+%%% Local Variables: 
+%%% TeX-master: "~/texmf/tex/latex/beamer/test/test.tex"
+%%% End: 
