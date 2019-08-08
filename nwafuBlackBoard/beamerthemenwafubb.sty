@@ -14,6 +14,10 @@
 \mode<presentation>
 
 \RequirePackage{nwafubeamer_common}
+\RequirePackage[font=Helv]{tdclock}%, timeinterval=59
+%[font=Times,timeinterval=10, timeduration=2.0, timedeath=0, fillcolorwarningsecond=white!60!yellow,
+%timewarningfirst=50,timewarningsecond=80,resetatpages=2]
+%\initclock
 
 \usecolortheme{nwafubb}
 
@@ -48,7 +52,7 @@
 \setbeamertemplate{footline}{%
   \setbox\nwafubmr@tmpboxa\hbox{\ifnum\insertsectionnumber>0\boldmath\insertsectionnumber.~\insertsection\fi}%
   \setbox\nwafubmr@tmpboxb\hbox{\boldmath\insertshorttitle{}}%
-  \setbox\nwafubmr@tmpboxc\hbox{\boldmath\insertshortinstitute{}\ \insertauthor\ \insertframenumber$/$\inserttotalframenumber}%
+  \setbox\nwafubmr@tmpboxc\hbox{\boldmath\insertshortinstitute{}\ \insertauthor\ \insertframenumber$/$\inserttotalframenumber}%\factorclockfont{1.7}\factorclockfont{1.0}
   \ht\nwafubmr@tmpboxa=1mm\dp\nwafubmr@tmpboxa=0mm%
   \ht\nwafubmr@tmpboxb=1mm\dp\nwafubmr@tmpboxb=0mm%
   \ht\nwafubmr@tmpboxc=1mm\dp\nwafubmr@tmpboxb=0mm%
