@@ -194,17 +194,17 @@ readonly=true,value=/]{}\kern-60pt\kern \a@one pt\kern \b@one\clock@fontsize\vru
 % new def for xelatex from:https://tex.stackexchange.com/questions/219415/time-clock-at-the-footline-of-a-beamer-slide-is-not-adjusted-in-the-middle-if-co/407730#407730
 \def\pdfcolon{%
 \clock@setfonsize\clock@setheight\clock@setfontcolor%\clock@setwidth
-\setbox\sizebox=\hbox{\TextField[readonly=true, name=separatortime, width=0.90\clock@fontsize, height=1.2\clock@height, align = 0, color =\clock@fontcolor, charsize = \clock@fontsize,value=:]{}}%
+\setbox\sizebox=\hbox{\TextField[readonly=true, name=separatortime, width=0.90\clock@fontsize, height=1.3\clock@height, align = 0, color =\clock@fontcolor, charsize = \clock@fontsize,value=:]{}}%
 \vrule width 0pt height 2pt\kern-0.4pt\kern-\wd\sizebox\kern 0.90\clock@fontsize{\raisebox{-\b@h\clock@fontsize}{\raisebox{-\a@h pt}%
-{\mbox{\TextField[name=separatortime, width=0.90\clock@fontsize, height=1.2\clock@height, align = 0, color =\clock@fontcolor, charsize = \clock@fontsize,
+{\mbox{\TextField[name=separatortime, width=0.90\clock@fontsize, height=1.3\clock@height, align = 0, color =\clock@fontcolor, charsize = \clock@fontsize,
 readonly=true,value=:]{}\kern-0.90\clock@fontsize\kern\a@one pt\kern \b@one\clock@fontsize\vrule width 0pt height 2pt}}}}%
 }
 
 \def\clockfield#1{%
 \clock@setfonsize\clock@setheight\clock@setfontcolor%\clock@setwidth
-\setbox\sizebox=\hbox{\TextField[readonly=true, name=#1, width=1.6\clock@fontsize, height=1.2\clock@height, align = 0, color =\clock@fontcolor, charsize = \clock@fontsize]{}}%
+\setbox\sizebox=\hbox{\TextField[readonly=true, name=#1, width=1.6\clock@fontsize, height=1.3\clock@height, align = 0, color =\clock@fontcolor, charsize = \clock@fontsize]{}}%
 \vrule width 0pt height 2pt\kern-\a@a pt\kern-\wd\sizebox\kern 1.6\clock@fontsize{\raisebox{-\b@h\clock@fontsize}%
-{\raisebox{-\a@h pt}{\mbox{\TextField[name=#1, width=1.6\clock@fontsize, height=1.2\clock@height, align = 0, color =\clock@fontcolor, charsize = \clock@fontsize,readonly=true,
+{\raisebox{-\a@h pt}{\mbox{\TextField[name=#1, width=1.6\clock@fontsize, height=1.3\clock@height, align = 0, color =\clock@fontcolor, charsize = \clock@fontsize,readonly=true,
 value={}]{}\kern-1.6\clock@fontsize\kern\a@a pt\kern \b@b\clock@fontsize\vrule width 0pt height 2pt}}}}%
 }
 
