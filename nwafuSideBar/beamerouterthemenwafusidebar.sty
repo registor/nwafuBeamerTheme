@@ -19,7 +19,8 @@
 \RequirePackage{tikz}
 \usetikzlibrary{external}
 \RequirePackage{calc}
-\RequirePackage[font=Helv]{tdclock}%, timeinterval=59
+\RequirePackage[font=Helv]{tdclock}% 时钟宏包，由于原tdclock用XeLaTeX编译时会有垂直方向遮挡，对其参数进行了调整，请使用当前目录下的tdclock.sty宏包
+%, timeinterval=59
 %[font=Times,timeinterval=10, timeduration=2.0, timedeath=0, fillcolorwarningsecond=white!60!yellow,
 %timewarningfirst=50,timewarningsecond=80,resetatpages=2]
 %\initclock
@@ -220,24 +221,24 @@
       \coordinate (LC) at (0,-\paperheight); % 左下角
       \coordinate (BS) at (\paperwidth,-\beamer@height); % 分割条的起始坐标
       \coordinate (BE) at (\beamer@width+\beamer@barwidth/2,-\paperheight); % 分割条的终止坐标
-      \coordinate (UW) at (\beamer@width/2 - \beamer@height/4 - 0.5pt, 0); % 边栏水平顶边中点
+      \coordinate (UW) at (\beamer@width/2 - \beamer@height/4 - 0.5pt, 0); % 边栏顶边水平中点
     \else% 边栏在右边
       \coordinate (UC) at (0,0); % 左上角
       \coordinate (LC) at (\paperwidth,-\paperheight); % 右下角
       \coordinate (BS) at (0,-\beamer@height); % 分割条起始坐标
       \coordinate (BE) at (\paperwidth-\beamer@width-\beamer@barwidth/2,-\paperheight); % 分割条终止坐标
-      \coordinate (UW) at (\paperwidth-\beamer@width/2+\beamer@height/4 - 1pt, 0); % 边栏水平顶边中点
+      \coordinate (UW) at (\paperwidth-\beamer@width/2+\beamer@height/4 - 1pt, 0); % 边栏顶边水平中点
     \fi%
     \coordinate (IS) at (BS -| BE); % 求过BS的水平线与过BE的垂直线的交点
     \coordinate (logopos) at ([yshift=\beamer@height/2] IS);% logo的坐标
-    \coordinate (tdclockpos) at (logopos -| UW);
+    \coordinate (tdclockpos) at (logopos -| UW);% 时钟中心坐标
     % 绘制页眉背景、圆和logo
     {\usebeamercolor{frametitle}%
       \usebeamercolor{nwafusidebar}%
-      \draw[draw=none,fill=frametitle.bg] (UC) rectangle (IS -| LC);%
-      \fill[fill=nwafusidebar.fg] ([yshift=\beamer@height/2] IS) circle (1.0*\beamer@height/2);%
-      \node at (logopos){\includegraphics[width=0.95\beamer@height]{nwafulogo/circle}};%
-      \node[anchor=center, frametitle.fg] at (tdclockpos) {\factorclockfont{1.7}\hhmm\tdtime};%\initclock
+      \draw[draw=none,fill=frametitle.bg] (UC) rectangle (IS -| LC);% 绘制标题栏背景
+      \fill[fill=nwafusidebar.fg] ([yshift=\beamer@height/2] IS) circle (1.0*\beamer@height/2);% 绘制圆形logo背景
+      \node at (logopos){\includegraphics[width=0.95\beamer@height]{nwafulogo/circle}};% 载入圆形logo
+      \node[anchor=center, frametitle.fg] at (tdclockpos) {\factorclockfont{1.7}\hhmm\tdtime};% 布置时钟
     }%
   \end{tikzpicture}%
   \tikzexternalenable%

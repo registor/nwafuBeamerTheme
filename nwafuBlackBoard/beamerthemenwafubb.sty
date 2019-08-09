@@ -14,7 +14,8 @@
 \mode<presentation>
 
 \RequirePackage{nwafubeamer_common}
-\RequirePackage[font=Helv]{tdclock}%, timeinterval=59
+\RequirePackage[font=Helv]{tdclock}% 时钟宏包，由于原tdclock在页脚显示会有遮挡，对其参数进行了调整，请使用当前目录下的tdclock.sty宏包
+%, timeinterval=59
 %[font=Times,timeinterval=10, timeduration=2.0, timedeath=0, fillcolorwarningsecond=white!60!yellow,
 %timewarningfirst=50,timewarningsecond=80,resetatpages=2]
 %\initclock
@@ -52,7 +53,7 @@
 \setbeamertemplate{footline}{%
   \setbox\nwafubmr@tmpboxa\hbox{\ifnum\insertsectionnumber>0\boldmath\insertsectionnumber.~\insertsection\fi}%
   \setbox\nwafubmr@tmpboxb\hbox{\boldmath\insertshorttitle{}}%
-  \setbox\nwafubmr@tmpboxc\hbox{\boldmath\insertshortinstitute{}\ \insertauthor\ \hhmm\tdtime\ \insertframenumber$/$\inserttotalframenumber}%\factorclockfont{1.7}\factorclockfont{1.0}
+  \setbox\nwafubmr@tmpboxc\hbox{\boldmath\insertshortinstitute{}\ \insertauthor\ \hhmm\tdtime\ \insertframenumber$/$\inserttotalframenumber}% 用hhmm调整时钟为“时:分”格式，用\tdtime输出时钟
   \ht\nwafubmr@tmpboxa=1mm\dp\nwafubmr@tmpboxa=0mm%
   \ht\nwafubmr@tmpboxb=1mm\dp\nwafubmr@tmpboxb=0mm%
   \ht\nwafubmr@tmpboxc=1mm\dp\nwafubmr@tmpboxb=0mm%
