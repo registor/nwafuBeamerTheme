@@ -85,8 +85,14 @@
   % 帧标题
   \setbeamertemplate{frametitle}{%
     \begin{minipage}[c][\beamer@height][c]{\textwidth-1.5\beamer@logoouterradius}
-      \hspace*{-2ex}{\usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle}
-      \ |\ {\usebeamercolor[fg]{framesubtitle}\usebeamerfont{frametitle}\insertframesubtitle\par}%
+      \hspace*{-2ex}%
+      \usebeamercolor[fg]{frametitle}\usebeamerfont{frametitle}\insertframetitle
+      \ifx\insertframesubtitle\@empty
+      \else
+        \ |\ 
+        \usebeamercolor[fg]{framesubtitle}\usebeamerfont{frametitle}\insertframesubtitle
+      \fi
+      \par
     \end{minipage}
   }
   
